@@ -1,0 +1,26 @@
+CACHE MANIFEST
+#Adding cache manifest for offline storage
+
+CACHE:
+default.html
+structure.html
+app_mode.html
+features.html
+hands_on.html
+style.css
+clock.css
+
+offline.js
+clock.js
+ajax.js
+modernizr-2.0.6.js
+assignment.js
+jquery.js
+
+poster.jpg
+favicon.ico
+html5solutions.png
+
+NETWORK:
+
+mov_bbb.mp4

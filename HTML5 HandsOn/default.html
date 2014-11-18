@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<head>
+    <title>HTML5 Workshop</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="vipin goel" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="assignment.js"></script>
+    <script type="text/javascript" src="jquery.js" ></script>
+    <script type="text/javascript" src="modernizr-2.0.6.js"></script>
+</head>
+<body>
+    <header>
+	<table>
+	    <tr>
+		    <td rowspan=2 style="width:100%"><h1>HTML5 Workshop</h1></td>
+		     <td id="onlineStatus" colspan=2 style="text-align:right">
+			<script>
+			setOnlineStatus();
+			</script>
+		     </td>
+	    </tr>
+	    <tr>   
+		    <td style="width:auto">
+			    <input accesskey="S" type="search" name="searchText" autocomplete="on" placeholder="Search"  spellcheck="true"/>
+		    </td>
+		    <td style="width:auto">
+			    <input id="inputThemeColor" accesskey="C" type="color" title="Select theme color" name="myTheme" list="datalistColors"  placeholder="Set theme color"  value="#088888" onchange="setTheme(this.value, true)"/>
+			    <datalist id="datalistColors">
+				<option label="brown" value="#802A2A"></option>
+				<option label="orange" value="#CC3232"></option>
+				<option label="Green" value="#5E2612"></option>
+				<option label="darkolivegreen" value="#556B2F"></option>
+				<option label="ivoryblack" value="#292421"></option>
+				<option label="copper" value="#B87333"></option>
+				<option label="bronze" value="#8C7853"></option>
+				<option label="gold4" value="#8B7500"></option> 
+							<script type="text/javascript">
+								setTheme("#088888", false);
+							</script>    
+			    </datalist>
+		    </td>
+	    </tr>
+	</table>
+    </header>
+    <nav>
+	<ul>
+		<li><a href="default.html">Introduction</a></li>
+		<li><a href="structure.html">Structure</a></li>
+		<li><a href="features.html">Features</a></li>
+		<li><a href="app_mode.html">App Dev.</a></li>
+		<li><a href="hands_on.html">Hands-on</a></li>
+	</ul>
+    </nav>		
+
+   <section class="outerSection">
+		<aside>
+			<header>
+				<h4>Session summary<h4>
+			</header>
+			<p>
+				<h4>Frameworks</h4>
+				<ol>
+					<li>Phone gap</li>
+					<li>Sproutcode</li>
+					<li>Jo</li>
+				</ol>
+			</p>
+			<p>
+				<h4>Do it yourself 1</h4>
+				<ol>
+					<li>Looked into video support.</li>
+					<li>Build a small demo</li>
+					<li>Look at <q>Modernizr</q> for video support.</li>
+				</ol>
+			</p>
+			<p>
+				<h4>Links</h4>
+				<ol>
+					<li><a href="http://html5test.com" target="_blank">http://html5test.com</a></li>
+					<li><a href="http://html5demos.com/" target="_blank">http://html5demos.com</a></li>
+					<li><a href="http://modernizr.com" target="_blank">http://www.modernizr.com</a></li>
+				</ol>
+			</p>
+		</aside>
+		
+		<section class="articles">
+			<article>
+				<a name="video"/>
+				<header>
+					<h4>About Video Tag</h4>
+				</header>
+				<p>
+				    <ol>
+					<li>HTML5 video and audio tags were designed to make embedding a video as easy as embedding an image. They were also designed to give users a faster experience by doing away with browser plugins such as Adobe Flash.</li>
+					<li>Unfortunately, older browsers don't support HTML5 video and audio tags, and even modern browsers don't support a consistent set of video codecs, making embedding a video rather difficult.</li>
+				    </ol>
+				</p>
+			</article>
+			
+			<article>
+				<header>
+					<h4>Video demo</h4>
+				</header>
+				</br>
+				<video preload="none" width="600px" poster="poster.jpg">
+				    <source src="happyfit2.webm" type="video/webm" />	
+				    <source src="mov_bbb.mp4" type="video/MP4" />
+					  <img src="poster.jpg"></img>
+					  </br>Video tag is not supported.
+				  </video>	
+				  <video  style="float:left" preload="none" width="200px" poster="poster.jpg" muted="muted" loop="loop">
+				    <source src="happyfit2.webm" type="video/webm" />
+				    <source src="mov_bbb.mp4" type="video/MP4" />
+					  <img src="poster.jpg"></img>
+					  </br>Video tag is not supported.
+				  </video>
+				   <video style="float:left" preload="none" width="200px" poster="poster.jpg" muted="muted" loop="loop">
+				    <source src="happyfit2.webm" type="video/webm" />
+				    <source src="mov_bbb.mp4" type="video/MP4" />
+					  <img src="poster.jpg"></img>
+					  </br>Video tag is not supported.
+				  </video>
+				   <video preload="none" width="200px" poster="poster.jpg" muted="muted" loop="loop">
+				    <source src="happyfit2.webm" type="video/webm" />
+				    <source src="mov_bbb.mp4" type="video/MP4" />
+					  <img src="poster.jpg"></img>
+					  </br>Video tag is not supported.
+				  </video>
+				 
+				  <input style="width:70px" id="playButton" name="play" type="button" value="Play" onclick="playVideos();"/>
+				  <input id="videoTimeline" name="timeline" type="range" value="0" />
+				<script type="text/javascript">
+				    loadVideoControls();
+				</script>
+			</article>
+		</section>
+		
+	</section>
+	
+	<footer>
+	    <span id="sessionStartTime">
+		<script>
+		    setSessionStartTime();
+		</script>
+	    </span>
+	    &copy;Copyright Nagarro Software 2012
+	</footer>
+</body>
+</html>

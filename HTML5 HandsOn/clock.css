@@ -1,0 +1,141 @@
+div, canvas
+{
+	margin:0px;
+	padding:0px;
+}
+
+canvas
+{
+       position:relative;
+       top:0px;
+       left:0px;
+}
+
+.clockDigit
+{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	font-weight:bold;
+	color:white;
+	width:10px;
+	font-size:medium;
+	height:20px;
+	display:block;
+}
+
+
+#divOuterClock
+{
+	width:400px;
+	height:400px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:100px;
+}
+
+
+#divCanvas
+{	
+	top:0px;
+	left:0px;
+	position:relative;
+}
+
+
+#secondHand
+{
+	position:relative;
+	z-index:10;
+	top:198px;
+	left:0px;
+	width:400px;
+	height:2px;
+}
+
+#secondHandFirstHalf
+{
+	position:relative;
+	z-index:10;
+	top:0px;
+	left:0px;
+	width:200px;
+	height:2px;
+	background-color:transparent;
+}
+#secondHandSecHalf
+{
+	position:relative;
+	z-index:11;
+	top:0px;
+	left:200px;
+	width:180px;
+	height:2px;
+	background-color:red;
+}
+
+#minuteHand
+{
+	position:relative;
+	z-index:5;
+	top:196px;
+	left:51px;
+	width:300px;
+	height:2px;
+}
+
+#minuteHandFirstHalf
+{
+	position:relative;
+	z-index:5;
+	top:0px;
+	left:0px;
+	width:150px;
+	height:2px;
+	background-color:transparent;
+}
+
+#minuteHandSecHalf
+{
+	position:relative;
+	z-index:6;
+	top:0px;
+	left:148px;
+	width:150px;
+	height:2px;
+	background-color:green;
+	border:solid 1px lime;
+}
+
+#hourHand
+{
+	position:relative;
+	z-index:1;
+	top:194px;
+	left:80px;
+	width:240px;
+	height:4px;
+}
+
+#hourHandFirstHalf
+{
+	position:relative;
+	z-index:1;
+	top:0px;
+	left:0px;
+	width:120px;
+	height:4px;
+	background-color:transparent;
+}
+
+#hourHandSecHalf
+{
+	position:relative;
+	z-index:2;
+	top:0px;
+	left:120px;
+	width:120px;
+	height:4px;
+	background-color:Purple;
+	border:solid 1px maroon;
+}

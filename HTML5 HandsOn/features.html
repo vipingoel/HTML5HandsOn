@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<head>
+    <title>HTML5 Workshop</title>
+    <meta charset="UTF-8"/>
+	<meta name="author" content="vipin goel" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="assignment.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="clock.css" />    
+        <script type="text/javascript" src="clock.js"></script>
+
+	<!--External JS libraries-->
+	<script type="text/javascript" src="jquery.js" ></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBH07OdLTH9TNA5zYKd_osYsv4oJ-gif78&sensor=false"></script>
+	<script type="text/javascript" src="modernizr-2.0.6.js"></script>
+	 <script type="text/javascript">
+		$(document).ready(function(){
+			//checkGeolocation();
+			pointLocation(28.52721700, 90.90495600);
+			pathConnector(34.05083300,	11.25944400, 4.05638900	,35.38416700);
+						//multiPointLocation(37.772323, -122.214897, 21.291982, -157.821856);
+			
+		});
+	</script>	
+</head>
+<body>
+	<header>
+		<table>
+			<tr>
+				<td rowspan=2 style="width:100%"><h1>HTML5 Workshop</h1></td>
+				 <td id="onlineStatus" colspan=2 style="text-align:right">
+				    <script>
+				    setOnlineStatus();
+				    </script>
+				 </td>
+			</tr>
+			<tr>
+				
+				<td style="width:auto">
+					<input accesskey="S" type="search" name="searchText" autocomplete="on" placeholder="Search"  spellcheck="true"/>
+				</td>
+				<td style="width:auto">
+					<input id="inputThemeColor" accesskey="C" type="color" title="Select theme color" name="myTheme" list="datalistColors"  placeholder="Set theme color"  value="#088888" onchange="setTheme(this.value, true)"/>
+					<datalist id="datalistColors">
+					    <option label="brown" value="#802A2A"></option>
+					    <option label="orange" value="#CC3232"></option>
+					    <option label="Green" value="#5E2612"></option>
+					    <option label="darkolivegreen" value="#556B2F"></option>
+					    <option label="ivoryblack" value="#292421"></option>
+					    <option label="copper" value="#B87333"></option>
+					    <option label="bronze" value="#8C7853"></option>
+					    <option label="gold4" value="#8B7500"></option> 
+								    <script type="text/javascript">
+									    setTheme("#088888", false);
+								    </script>    
+					</datalist>
+				</td>
+			</tr>
+		</table>
+    </header>
+    <nav>
+	<ul>
+		<li><a href="default.html">Introduction</a></li>
+		<li><a href="structure.html">Structure</a></li>
+		<li><a href="features.html">Features</a></li>
+		<li><a href="app_mode.html">App Dev.</a></li>
+		<li><a href="hands_on.html">Hands-on</a></li>
+	</ul>
+    </nav>		
+
+   <section class="outerSection">
+		<aside>
+			<header>
+				<h4>Session summary<h4>
+			</header>
+			<p>
+				<h4>Frameworks</h4>
+				<ol>
+					<li>Phone gap</li>
+					<li>Sproutcode</li>
+					<li>Jo</li>
+				</ol>
+			</p>
+			<p>
+				<h4>Do it yourself 1</h4>
+				<ol>
+					<li>Looked into video support.</li>
+					<li>Build a small demo</li>
+					<li>Look at <q>Modernizr</q> for video support.</li>
+				</ol>
+			</p>
+			<p>
+				<h4>Links</h4>
+				<ol>
+					<li><a href="http://html5test.com" target="_blank">http://html5test.com</a></li>
+					<li><a href="http://html5demos.com/" target="_blank">http://html5demos.com</a></li>
+					<li><a href="http://modernizr.com" target="_blank">http://www.modernizr.com</a></li>
+				</ol>
+			</p>
+		</aside>
+		
+		<section class="articles">
+			<article>
+				<header>
+					<h4>Input controls</h4>
+				</header>
+				<p>
+					Demo for input controls is shown in the header of this application.
+					<ol>
+						<li>On top right side, there is a search box shows place holder.</li>
+						<li>After search box, there is a color input box. This will be best viewed on Opera browser. Set any color to change theme</li>
+					</ol>
+				</p>
+			</article>
+			
+			<article>
+				<header>
+					<h4>Navigator.Online</h4>
+				</header>
+				<p>
+				    Used navigator.online property to show status of connection. Whether online or offline.
+				    Works with google chrome but not working on other browsed when system goes offline.
+				    Chrome correcly updates the status from online to offline.
+				</p>
+			</article>
+			
+			<article>
+				<header>
+					<h4>Geolocation API</h4>
+				</header>
+				<p>
+				    Used geolocation API to fetch current location and mapped it using google maps API.
+				</p>
+				<div id="divGeoLocationFacility" style="width:600px;height:400px;display:block;margin-left:20px">
+				       
+				</div>
+				<div id="divGeoLocationPipeline" style="width:600px;height:400px;display:block;margin-left:20px">
+				       
+				</div>
+			</article>
+			
+			<article>
+				<header>
+					<h4>Local storage and Session storage</h4>
+				</header>
+				<p>
+					<ul>
+						<li>Selected Theme color is saved in localStorage so it will persist if we reopen browser.</li>
+						<li>Current location is saved in session storage and will persist if we browse any other form</li>
+					</ul>
+				</p>
+			</article>
+			
+			<article>
+				<header>
+					<h4>Video elements</h4>
+				</header>
+				<p>
+					Demo for video elements are shown in the introduction link.
+					<ol>
+						<li>There is a play and pause button with a custom seek bar using range type input.</li>
+						<li>Main video will run from begining.</li>
+						<li>Below main video there are three similar videos running in different timeline (in future) with equal gaps.</li>
+						<li>Best viewed on Chrome.</li>
+						<li>Click <a href="default.html#video">here<a> to see.</li>
+					</ol>
+				</p>
+			</article>
+			
+			<article>
+				<header>
+					<h4>Clock using CSS3 rotation and Canvas at the background.</h4>
+				</header>
+				<p>	
+				    <ol>
+					<li>Canvas to create gradients</li>
+					<li>CSS rotation properties to rotate div elements is being used here.</li>
+				    </ol>
+				</p>
+				<div id="divOuterClock">
+				    <div id="secondHand">
+					<div id="secondHandFirstHalf">
+					    &nbsp
+					</div>
+					<div id="secondHandSecHalf">
+					    &nbsp
+					</div>
+				    </div>
+				    <div id="minuteHand">
+					<div id="minuteHandFirstHalf">
+					    &nbsp
+					</div>
+					<div id="minuteHandSecHalf">
+					    &nbsp
+					</div>
+				    </div>
+				    <div id="hourHand">
+					<div id="hourHandFirstHalf">
+					    &nbsp
+					</div>
+					<div id="hourHandSecHalf">
+					    &nbsp
+					</div>
+				    </div>
+				    
+				    <canvas width="400px" height="400px" id="backCanvas">
+					<script type="text/javascript">
+					    drawClockBackground();
+					</script>
+				    </canvas>
+				
+				</div>
+				
+				<script type="text/javascript">
+				    setDigits(); 
+				    setClock();
+				</script>
+			</article>
+		</section>
+	</section>
+	
+	<footer>
+	    <span id="sessionStartTime">
+		<script>
+		    setSessionStartTime();
+		</script>
+	    </span>
+	    &copy;Copyright Nagarro Software 2012
+	</footer>
+</body>
+</html>

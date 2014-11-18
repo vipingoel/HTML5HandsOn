@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<head>
+    <title>HTML5 Workshop</title>
+    <meta charset="UTF-8"/>
+	<meta name="author" content="vipin goel" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="assignment.js"></script>
+	<script type="text/javascript" src="jquery.js" ></script>
+	<script type="text/javascript" src="modernizr-2.0.6.js"></script>
+</head>
+<body>
+<header>
+		<table>
+			<tr>
+				<td rowspan=2 style="width:100%"><h1>HTML5 Workshop</h1></td>
+				 <td id="onlineStatus" colspan=2 style="text-align:right">
+				    <script>
+				    setOnlineStatus();
+				    </script>
+				 </td>
+			</tr>
+			<tr>
+				
+				<td style="width:auto">
+					<input accesskey="S" type="search" name="searchText" autocomplete="on" placeholder="Search"  spellcheck="true"/>
+				</td>
+				<td style="width:auto">
+					<input id="inputThemeColor" accesskey="C" type="color" title="Select theme color" name="myTheme" list="datalistColors"  placeholder="Set theme color"  value="#088888" onchange="setTheme(this.value, true)"/>
+					<datalist id="datalistColors">
+					    <option label="brown" value="#802A2A"></option>
+					    <option label="orange" value="#CC3232"></option>
+					    <option label="Green" value="#5E2612"></option>
+					    <option label="darkolivegreen" value="#556B2F"></option>
+					    <option label="ivoryblack" value="#292421"></option>
+					    <option label="copper" value="#B87333"></option>
+					    <option label="bronze" value="#8C7853"></option>
+					    <option label="gold4" value="#8B7500"></option> 
+								    <script type="text/javascript">
+									    setTheme("#088888", false);
+								    </script>    
+					</datalist>
+				</td>
+			</tr>
+		</table>
+    </header>
+    <nav>
+	<ul>
+		<li><a href="default.html">Introduction</a></li>
+		<li><a href="structure.html">Structure</a></li>
+		<li><a href="features.html">Features</a></li>
+		<li><a href="app_mode.html">App Dev.</a></li>
+		<li><a href="hands_on.html">Hands-on</a></li>
+	</ul>
+    </nav>	
+
+   <section class="outerSection">
+		<aside>
+			<header>
+				<h4>Summary<h4>
+			</header>
+			<p>
+				<h4>Implementation</h4>
+				<ol>
+					<li>Dynamically created tag buttons by creating an array which could be easily extensible. just add/remove an element while declaring arrayStructuralTags.</li>
+					<li>Used Jquery to show border and make selected element opaque.</li>
+				</ol>
+			</p>
+			
+			<p>
+				<h4>Links</h4>
+				<ol>
+					<li><a href="http://w3cschools.com" target="_blank">http://w3cschools.com</a></li>
+					<li><a href="http://jquery.com/" target="_blank">http://jquery.com</a></li>
+				</ol>
+			</p>
+		</aside>
+		
+		<section class="articles">
+			<article>
+				<header>
+					<h4>Structural elements demo</h4>
+				</header>
+				<p>
+					Structural elements used in current page will be drawn dynamically and we can view how they are placed.
+				</p>
+				<p>
+					<h4>Just take your mouse over any tag shown below to see where it is implemented on page!!!</h4>
+				</p>
+				<div id="divStructuralElements">
+				</div>
+				<script>
+				    showStructuralElements();
+				</script>
+			</article>
+					
+		</section>
+		
+	</section>
+   
+	<footer>
+	    <span id="sessionStartTime">
+		<script>
+		    setSessionStartTime();
+		</script>
+	    </span>
+	    &copy;Copyright Nagarro Software 2012
+	</footer>
+</body>
+</html>

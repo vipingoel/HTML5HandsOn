@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<head>
+    <title>HTML5 Workshop</title>
+    <meta charset="UTF-8"/>
+	<meta name="author" content="vipin goel" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="assignment.js"></script>
+	<script type="text/javascript" src="jquery.js" ></script>
+	<script type="text/javascript" src="modernizr-2.0.6.js"></script>
+</head>
+<body>
+<header>
+		<table>
+			<tr>
+				<td rowspan=2 style="width:100%"><h1>HTML5 Workshop</h1></td>
+				 <td id="onlineStatus" colspan=2 style="text-align:right">
+				    <script>
+				    setOnlineStatus();
+				    </script>
+				 </td>
+			</tr>
+			<tr>
+				
+				<td style="width:auto">
+					<input accesskey="S" type="search" name="searchText" autocomplete="on" placeholder="Search"  spellcheck="true"/>
+				</td>
+				<td style="width:auto">
+					<input id="inputThemeColor" accesskey="C" type="color" title="Select theme color" name="myTheme" list="datalistColors"  placeholder="Set theme color"  value="#088888" onchange="setTheme(this.value, true)"/>
+					<datalist id="datalistColors">
+					    <option label="brown" value="#802A2A"></option>
+					    <option label="orange" value="#CC3232"></option>
+					    <option label="Green" value="#5E2612"></option>
+					    <option label="darkolivegreen" value="#556B2F"></option>
+					    <option label="ivoryblack" value="#292421"></option>
+					    <option label="copper" value="#B87333"></option>
+					    <option label="bronze" value="#8C7853"></option>
+					    <option label="gold4" value="#8B7500"></option> 
+								    <script type="text/javascript">
+									    setTheme("#088888", false);
+								    </script>    
+					</datalist>
+				</td>
+			</tr>
+		</table>
+    </header>
+    <nav>
+	<ul>
+		<li><a href="default.html">Introduction</a></li>
+		<li><a href="structure.html">Structure</a></li>
+		<li><a href="features.html">Features</a></li>
+		<li><a href="app_mode.html">App Dev.</a></li>
+		<li><a href="hands_on.html">Hands-on</a></li>
+	</ul>
+    </nav>		
+
+   <section class="outerSection">
+		<aside>
+			<header>
+				<h4>Session summary<h4>
+			</header>
+			<p>
+				
+			</p>
+			<p>
+				<h4>Links</h4>
+				<ol>
+					<li><a href="http://www.html5rocks.com/en/tutorials/offline/takingappoffline/"
+					       target="_blank">http://www.html5rocks.com/en/ tutorials/offline/takingappoffline/</a></li>
+					<li><a href="http://forum.jquery.com/topic/iis-hosted-web-config-cache-manifest-correct-mime-type"
+					       target="_blank">http://forum.jquery.com/topic /iis-hosted-web-config-cache -manifest-correct-mime-type</a></li>
+				</ol>
+			</p>
+		</aside>
+		
+		<section class="articles">
+			<article>
+				<header>
+					<h4>Offline storage demo</h4>
+				</header>
+				<p>
+				    1. Add HTML5 doctype
+				    The first thing to do is create a valid HTML5 document. The HTML5 doctype is easier to remember than ones used for xhtml:
+				</p>
+				<p>
+				
+				    Create a file named index.html, or get the example files from my CSS3 media queries article to use as a basis for this tutorial.
+				    In case you need it, the full HTML5 specs are available on the W3C website.
+				
+				</p>
+				<p>
+				    
+				    2. Add .htaccess support
+				    The file we’re going to create to cache our web page is called a manifest file. Before creating it, we first have to add a directive to the .htaccess file (assuming your server is Apache).
+				</p>
+				<p>
+				    Open the .htaccess file, which is located on your website root, and add the following code:
+				</p>
+				<p>
+				    
+				    AddType text/cache-manifest .manifest
+				    This directive makes sure that every .manifest file is served as text/cache-manifest. If the file isn’t, then the whole manifest will have no effect and the page will not be available offline.
+				</p>
+				<p>
+				    				    3. Create the manifest file
+				    Now, things are going to be more interesting as we create a manifest file. Create a new file and save it as offline.manifest. Then, paste the following code in it. I’ll explain it later.
+				</p>
+				<p>
+				    
+				    CACHE MANIFEST
+				    #This is a comment
+				</p>
+				<p>
+				    CACHE
+				    index.html
+				    style.css
+				    image.jpg
+				    image-med.jpg
+				    image-small.jpg
+				    notre-dame.jpg
+				    Right now, you have a perfectly working manifest file. The way it works is very simple: After the CACHE declaration, you have to list each files you want to make available offline. That’s enough for caching a simple web page like the one from my example, but HTML5 caching has other interesting possibilities.
+				    
+				    For example, consider the following manifest file:
+				    
+				    CACHE MANIFEST
+				    #This is a comment
+				    
+				    CACHE
+				    index.html
+				    style.css
+				    
+				    NETWORK:
+				    search.php
+				    login.php
+				    
+				    FALLBACK:
+				    /api offline.html
+				    Like in the example manifest file, we have a CACHE declaration that caches index.html and style.css. But we also have the NETWORK declaration, which is used to specify files that shouldn’t be cached, such as a login page.
+				    
+				    The last declaration is FALLBACK. This declaration allows you to redirect the user to a particular file (in this example, offline.html) if a resource (/api) isn’t available offline.
+				</p>
+				<p>
+				    
+				    4. Link your manifest file to the html document
+				    Now, both your manifest file and your main html document are ready. The only thing you still have to do is to link the manifest file to the html document.
+				    
+				    Doing this is easy: simply add the manifest attribute to the html element as shown below:
+				</p>
+				<p>
+				    
+				   
+				    5. Test it
+				    Once done, you’re ready to go. If you visit your index.html file with Firefox 3.5+, you should see a banner like this one:
+				    
+				</p>
+				<p>
+				    
+				    Other browser I’ve tested (Chrome, Safari, Android and iPhone) do not warn about the file caching, and the file is automatically cached.
+				    
+				    Below you’ll find the browser compatibility of this technique: As usual Internet Explorer does not support it.
+				    
+				    IE: No support
+				    Firefox: 3.5+
+				    Safari: 4.0+
+				    Chrome: 5.0+
+				    Opera: 10.6+
+				    iPhone: 2.1+
+				    Android: 2.0+
+				</p>
+				<script>
+				    showStructuralElements();
+				</script>
+			</article>
+					
+		</section>
+		
+	</section>
+   
+	<footer>
+	    <span id="sessionStartTime">
+		<script>
+		    setSessionStartTime();
+		</script>
+	    </span>
+	    &copy;Copyright Nagarro Software 2012
+	</footer>
+</body>
+</html>

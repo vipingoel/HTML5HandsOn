@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<head>
+    <title>HTML5 Workshop</title>
+    <meta charset="UTF-8"/>
+	<meta name="author" content="vipin goel" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="assignment.js"></script>
+	
+	
+	<script type="text/javascript" src="ajax.js" ></script>
+	<script type="text/javascript" src="offline.js" ></script>
+	<script type="text/javascript" src="jquery.js" ></script>
+	<script type="text/javascript" src="modernizr-2.0.6.js"></script>
+</head>
+<body>
+    <header>
+	<table>
+		<tr>
+			<td rowspan=2 style="width:100%"><h1>HTML5 Workshop</h1></td>
+			 <td id="onlineStatus" colspan=2 style="text-align:right">
+			    <script>
+			    setOnlineStatus();
+			    </script>
+			 </td>
+		</tr>
+		<tr>
+			<td style="width:auto">
+				<input accesskey="S" type="search" name="searchText" autocomplete="on" placeholder="Search"  spellcheck="true"/>
+			</td>
+			<td style="width:auto">
+				<input id="inputThemeColor" accesskey="C" type="color" title="Select theme color" name="myTheme" list="datalistColors"  placeholder="Set theme color"  value="#088888" onchange="setTheme(this.value, true)"/>
+				<datalist id="datalistColors">
+				    <option label="brown" value="#802A2A"></option>
+				    <option label="orange" value="#CC3232"></option>
+				    <option label="Green" value="#5E2612"></option>
+				    <option label="darkolivegreen" value="#556B2F"></option>
+				    <option label="ivoryblack" value="#292421"></option>
+				    <option label="copper" value="#B87333"></option>
+				    <option label="bronze" value="#8C7853"></option>
+				    <option label="gold4" value="#8B7500"></option> 
+							    <script type="text/javascript">
+								    setTheme("#088888", false);
+							    </script>    
+				</datalist>
+			</td>
+		</tr>
+	</table>
+    </header>
+    <nav>
+	<ul>
+		<li><a href="default.html">Introduction</a></li>
+		<li><a href="structure.html">Structure</a></li>
+		<li><a href="features.html">Features</a></li>
+		<li><a href="app_mode.html">App Dev.</a></li>
+		<li><a href="hands_on.html">Hands-on</a></li>
+	</ul>
+    </nav>	
+
+    <section class="outerSection">
+	     <aside>
+		   
+		  
+		       <header>
+			     <h4>Features<h4>
+		     </header>
+		       <p>
+			<ol>
+			    <li>No div element is used for structural or visual needs in form designing.</li>
+			    <li>Required fields are highlighted with light red color.</li>
+			    <li>Web database with similar structure of actual database is used.</li>
+			    <li>Place Order button and Place Saved Order Online links are removed when app goes offline.</li>
+			    <li>All server calls are asynchronous and result could be seen in Log below.</li>
+			</ol>
+		     </p>
+		        <img src="html5solutions.png" />
+		     <h4>Links:</h4>
+		     <p>
+			<ol>
+			    <li>http://www.the-art-of-web.com/javascript/ajax/ #content</li>
+			    <li>W3CSchools Web service</li>
+			    <li>http://www.html5rocks.com/ en/tutorials/webdatabase/todo/</li>
+			</ol>
+		     </p>
+		      
+	     </aside>
+	     
+	     <section class="articles">
+		     <article>
+			    <header>
+				    <h4>Hands on simple form to demo offline mode, local storage and server sync.</h4>
+			    </header>
+			    <p>
+				Place order for HTML5Solutions now!. Now you can place order even when you are offline.
+			    </p>
+			    
+			    <form id="formOrder" name="formPlaceOrder"
+				oninput="outputQuantity.value=parseInt(inputQuantity.value); outputPrice.value=parseInt(inputQuantity.value * 120);">
+				  
+				  <fieldset title="Enter your personal details">
+				    <legend>Personal details</legend> 
+				    
+				    <label for="inputName">Your Name:</label>
+				    <input class="inputControl" accessKey="N" maxlength="100" pattern="[A-z,\s]+" size="30" autofocus="autofocus" type="text"
+					   name="inputName" required="required" autocomplete="on" placeholder="ex. Vipin Goel | Access(ALT + N)"/>
+				    
+				    <label for="inputEmail">Your Email Address:</label>
+				    <input class="inputControl" accessKey="E" type="email" size="40" name="inputEmail" required="required"
+					   autocomplete="on" placeholder="ex. name@domain.com | Access(ALT + E)"/>
+				    
+				    <label for="inputWebsite">Your Web Site:</label>
+				    <input class="inputControl" accessKey="W"  type="url" size="40" name="inputWebsite" list="myWebsiteDatalist"
+					   autocomplete="on" placeholder="ex. www.domain.com | Access(ALT + W)"/>
+				    
+				    <label for="inputPhone">Your Phone Number:</label>
+				    <input class="inputControl" accessKey="P" type="tel" size="20" name="inputPhone" required="required"
+					   autocomplete="on" placeholder="Access(ALT + P)" pattern="^\+(?:[0-9]?){6,14}[0-9]$"/>
+				    
+				    <datalist id="myWebsiteDatalist">
+					<option label="Google" value="http://google.com"></option>
+					<option label="Facebook" value="http://Facebook.com"></option>
+					<option label="LinkedIn" value="http://Linkedin.com"></option>
+					<option label="Yahoo" value="http://Yahoo.com"></option>
+					<option label="Wiki" value="http://Wikipedia.com"></option>
+					<option label="GMail" value="http://gmail.com"></option>
+				    </datalist>
+				 </fieldset>
+				 
+				 <fieldset title="Enter Order details">
+				    <legend>Order Details</legend> 
+				    
+				    <label for="inputQuantity">Select Quantity:</label>
+				    <div  class="inputControl" >
+					<input accessKey="Q" pattern="^\d+$" type="range" min="1" max="10" value="1" name="inputQuantity" required="required"/></div>
+					
+				    <label for="outputQuantity">No of units selected:</label>
+				    <output  class="inputControl"  name="outputQuantity" for="inputQuantity">1</output>
+					
+				    <label for="outputPrice">Total Price (Rs. 120 per unit) in Rs.: </label>
+				    <output  class="inputControl"  name="outputPrice" for="inputQuantity">120</output> 
+									    
+				    <label  for="inputDeliveryDate">Delivery Date:</label>
+				    <input class="inputControl" id="deliveryDate" accessKey="D" type="date" size="30" name="inputDeliveryDate" required="required"
+					   placeholder="YYYY-MM-DD | Access(ALT + D)" max="2012-12-31" min="2012-01-21"
+					   pattern="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$"/>
+				    
+				    <label for="inputShippingAddress">Shipping Address:</label>
+				    <textarea  class="inputControl" accessKey="A" multiple="multiple" name="inputShippingAddress" maxlength="500"
+					       autocomplete="on" required="required" placeholder="Access(ALT + A)"></textarea>
+				 </fieldset>
+				 
+				 <input id="placeOrder" class="inputButtons" name="submitOrder" type="submit" value="Place Order" onclick="submitButton='placeorder'"/>
+				 <input id="saveForLater"  class="inputButtons" name="saveForLater" type="submit" value="Save for Later" onclick="submitButton='saveforlater'"/>
+				 <input id="resetForm" name="inputReset" class="inputButtons" type="reset" value="Reset Order"/>
+			    </form>
+			    
+			    <h4 style="clear:left">All saved orders:</h4>
+			    <div style="display:block;height:210px;width:90%;overflow:auto;margin:auto;">
+				<ul id="savedOrdersList"></ul>
+			    </div>
+			    
+			    
+			    
+			    <h4>Log:</h4>
+			    <div id="responseDiv" style="display:block;height:150px;width:90%;overflow:auto;margin:auto;font-size:small"></div>
+			    <script type="text/javascript">init();</script>
+			    
+		     </article>
+	     </section>
+     </section>
+
+     <footer>
+	 <span id="sessionStartTime">
+	     <script>
+		 setSessionStartTime();
+	     </script>
+	 </span>
+	 &copy;Copyright Nagarro Software 2012
+     </footer>
+</body>
+</html>
